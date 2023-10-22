@@ -1,0 +1,50 @@
+.outer-gradient-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(218deg, #9181f4 -5.84%, #5038ed 106.73%);
+  width: 700px;
+  height: 700px;
+
+  .login-form-container {
+    width: fit-content;
+    height: fit-content;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    padding-left: 40px;
+    padding-right: 40px;
+    background: white;
+    border-radius: 24px;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    display: inline-flex;
+
+    .login-form {
+      width: 409px;
+      height: 355px;
+      position: relative;
+
+      h1 {
+        margin-top: 0;
+        left: 0px;
+        top: 0px;
+        position: absolute;
+        color: #333333;
+        font-size: 30px;
+        font-weight: 700;
+        text-transform: uppercase;
+        word-wrap: break-word;
+        font-family: "Poppins";
+      }
+
+      .login-form-content {
+        width: 364px;
+        height: fit-content;
+        left: 23px;
+        top: 90px;
+        position: absolute;
+      }
+    }
+  }
+}
