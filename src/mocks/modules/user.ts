@@ -1,4 +1,4 @@
-import { LoginRequest, LoginResponse } from "./interfaces/user.types";
+import { LoginRequest, LoginResponse } from "./interfaces/auth.interfaces";
 import { PathParams, rest } from "msw";
 
 const sessions = new Map<string, LoginResponse>();

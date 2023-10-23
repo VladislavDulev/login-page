@@ -1,14 +1,21 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import LoginForm from "./components/LoginForm";
-import ActionButton from "./components/common/ActionButton";
 import "react-toastify/dist/ReactToastify.css";
+import GreetAndLogout from "./components/GreetAndLogout";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(
     localStorage.getItem("isLoggedIn") === "true"
   );
   const [email, setEmail] = useState(localStorage.getItem("email") || "");
+
+  useEffect(() => {
+    const storedIsLoggedIn = localStorage.getItem("isLoggedIn");
+    if (storedIsLoggedIn === "true") {
+      setIsLoggedIn(true);
+    }
+  }, []);
 
   const handleLogin = (userEmail: string) => {
     setIsLoggedIn(true);
@@ -24,26 +31,10 @@ function App() {
     localStorage.removeItem("email");
   };
 
-  useEffect(() => {
-    console.log("tuka");
-
-    const storedIsLoggedIn = localStorage.getItem("isLoggedIn");
-    if (storedIsLoggedIn === "true") {
-      setIsLoggedIn(true);
-    }
-  }, []);
-
-  const greetingUser = `Hi, ${email}`;
-
   return (
     <div className="App">
       {isLoggedIn ? (
-        <div>
-          <p style={{ fontFamily: "Poppins", fontWeight: 700, fontSize: 22 }}>
-            {greetingUser}
-          </p>
-          <ActionButton label="Logout" onClick={handleLogout} />
-        </div>
+        <GreetAndLogout onLogout={handleLogout} email={email} />
       ) : (
         <LoginForm onLogin={handleLogin} />
       )}
